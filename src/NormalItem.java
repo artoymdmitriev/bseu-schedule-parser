@@ -7,7 +7,7 @@ public class NormalItem {
     private int numberOfDayOfWeek; // e.g. 1 (in case day of week is Monday)
     private String time; // e.g. "8.15-9.45"
     private int numberOfWeek; // e.g. 20
-    private String discipline; // e.g. "Информационный менеджмента и реинжиниринг бизнес-процессов"
+    private String discipline; // e.g. "Информационный менеджмент и реинжиниринг бизнес-процессов"
     private String teacher; // e.g. "Петров Петр Петрович"
     private String place; // e.g. "4/806"
     private String subgroup; // e.g. "подгр. а"
