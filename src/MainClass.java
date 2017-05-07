@@ -21,7 +21,7 @@ public class MainClass {
         HashMap<Integer, String> groups = parser.getGroups();
         parser.scheduleInfo.setGroup(6316);
 
-        //get schedule and turns it into arraylist
+        //gets schedule and turns it into arraylist
         ArrayList<ParsedItem> parsedItems = parser.getSchedule();
 
         ParseNormalizer parseNormalizer = new ParseNormalizer(parsedItems);
