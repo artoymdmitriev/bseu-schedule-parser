@@ -20,8 +20,6 @@ import java.util.*;
  * Created by Artoym on 05.05.2017.
  */
 public class Parser {
-    ArrayList<ParsedItem> items = new ArrayList<>();
-    ScheduleInfo scheduleInfo = new ScheduleInfo();
 
     /**
      *
@@ -51,7 +49,7 @@ public class Parser {
      *
      * @return IDs of forms and their names.
      */
-    public HashMap<Integer, String> getForms() {
+    public HashMap<Integer, String> getForms(ScheduleInfo scheduleInfo) {
         HashMap<String, Object> query = new HashMap<>();
         query.put("faculty", scheduleInfo.getFaculty());
         query.put("__act", "__id.22.main.inpFldsA.GetForms");
@@ -69,7 +67,7 @@ public class Parser {
      *
      * @return IDs of courses and their names.
      */
-    public HashMap<Integer, String> getCourses() {
+    public HashMap<Integer, String> getCourses(ScheduleInfo scheduleInfo) {
         HashMap<String, Object> query = new HashMap<>();
         query.put("faculty", scheduleInfo.getFaculty());
         query.put("form", scheduleInfo.getForm());
@@ -88,7 +86,7 @@ public class Parser {
      *
      * @return IDs of groups and their names.
      */
-    public HashMap<Integer, String> getGroups() {
+    public HashMap<Integer, String> getGroups(ScheduleInfo scheduleInfo) {
         HashMap<String, Object> query = new HashMap<>();
         query.put("faculty", scheduleInfo.getFaculty());
         query.put("form", scheduleInfo.getForm());
@@ -152,7 +150,7 @@ public class Parser {
      * into an ArrayList of schedule items.
      * @throws Exception
      */
-    public ArrayList<ParsedItem> getSchedule() throws Exception {
+    public ArrayList<ParsedItem> getSchedule(ScheduleInfo scheduleInfo) throws Exception {
         URL url = new URL("http://bseu.by/schedule/");
         HashMap<String, Object> params = new HashMap<>();
         params.put("faculty", scheduleInfo.getFaculty());
@@ -185,7 +183,7 @@ public class Parser {
         for (int c; (c = in.read()) >= 0;)
             result += (char)c;
 
-        parseScheduleIntoObjects(result);
+        ArrayList<ParsedItem> items = parseScheduleIntoObjects(result);
         return items;
     }
 
@@ -193,7 +191,8 @@ public class Parser {
      * Parses schedule from html into objects.
      * @param str
      */
-    private void parseScheduleIntoObjects(String str) {
+    private ArrayList<ParsedItem> parseScheduleIntoObjects(String str) {
+        ArrayList<ParsedItem> items = new ArrayList<>();
         Document doc = Jsoup.parse(str);
         Elements tbodyObjects = doc.getElementsByTag("tbody");  // all objects that contain tbody tag (at that moment
                                                                         // website contains two of them
@@ -244,6 +243,8 @@ public class Parser {
                 }
             }
         }
+
+        return items;
     }
 
     /**

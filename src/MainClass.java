@@ -7,30 +7,31 @@ import java.util.Scanner;
  */
 public class MainClass {
     public static void main(String[] args) throws Exception {
+        ScheduleInfo scheduleInfo = new ScheduleInfo();
         Parser parser = new Parser();
 
         //gets a map of faculties (id, name)
         HashMap<Integer, String> faculties = parser.getFaculties();
         //sets "Факультет менеджмента" as a faculty
-        parser.scheduleInfo.setFaculty(11);
+        scheduleInfo.setFaculty(11);
 
         //gets a map of forms (id, name)
-        HashMap<Integer, String> forms = parser.getForms();
+        HashMap<Integer, String> forms = parser.getForms(scheduleInfo);
         //sets "Дневная" as a form
-        parser.scheduleInfo.setForm(10);
+        scheduleInfo.setForm(10);
 
         //gets a map of courses (id, number)
-        HashMap<Integer, String> courses = parser.getCourses();
+        HashMap<Integer, String> courses = parser.getCourses(scheduleInfo);
         //sets "2 курс" as a course
-        parser.scheduleInfo.setCourse(2);
+        scheduleInfo.setCourse(2);
 
         //gets a map of groups (id, number)
-        HashMap<Integer, String> groups = parser.getGroups();
+        HashMap<Integer, String> groups = parser.getGroups(scheduleInfo);
         //sets "15ДКИ" as a group
-        parser.scheduleInfo.setGroup(6316);
+        scheduleInfo.setGroup(6316);
 
         //gets schedule and turns it into arraylist
-        ArrayList<ParsedItem> parsedItems = parser.getSchedule();
+        ArrayList<ParsedItem> parsedItems = parser.getSchedule(scheduleInfo);
 
         //turns an arraylist of parsed items into a list of
         //normal items
