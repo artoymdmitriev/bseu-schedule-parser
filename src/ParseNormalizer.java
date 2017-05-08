@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Artoym on 06.05.2017.
@@ -34,13 +35,19 @@ public class ParseNormalizer {
                 normalItem.setSubgroup(subgroup);
                 normalItem.setLessonType(lessonType.substring(1, lessonType.length() - 1));
 
-                switch (pi.getDay()) {
-                    case "понедельник" : normalItem.setNumberOfDayOfWeek(1);
-                    case "вторник" : normalItem.setNumberOfDayOfWeek(2);
-                    case "среда" : normalItem.setNumberOfDayOfWeek(3);
-                    case "четверг" : normalItem.setNumberOfDayOfWeek(4);
-                    case "пятница" : normalItem.setNumberOfDayOfWeek(5);
-                    case "суббота" : normalItem.setNumberOfDayOfWeek(6);
+                switch (day) {
+                    case "понедельник" : normalItem.setNumberOfDayOfWeek(Calendar.MONDAY);
+                        break;
+                    case "вторник" : normalItem.setNumberOfDayOfWeek(Calendar.TUESDAY);
+                        break;
+                    case "среда" : normalItem.setNumberOfDayOfWeek(Calendar.WEDNESDAY);
+                        break;
+                    case "четверг" : normalItem.setNumberOfDayOfWeek(Calendar.THURSDAY);
+                        break;
+                    case "пятница" : normalItem.setNumberOfDayOfWeek(Calendar.FRIDAY);
+                        break;
+                    case "суббота" : normalItem.setNumberOfDayOfWeek(Calendar.SATURDAY);
+                        break;
                 }
 
                 normalItems.add(normalItem);
