@@ -1,9 +1,11 @@
 package com.scheduleparser.parser;
 
+import java.io.Serializable;
+
 /**
  * Created by Artoym on 07.05.2017.
  */
-public class ScheduleInfo {
+public class ScheduleInfo implements Serializable{
     private int faculty;
     private int form;
     private int course;
