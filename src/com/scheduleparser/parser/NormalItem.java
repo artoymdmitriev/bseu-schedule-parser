@@ -1,9 +1,11 @@
 package com.scheduleparser.parser;
 
+import java.io.Serializable;
+
 /**
  * Created by Artoym on 06.05.2017.
  */
-public class NormalItem {
+public class NormalItem implements Serializable {
 
     private String dayOfWeek; // e.g. "понедельник"
     private int numberOfDayOfWeek; // e.g. 1 (in case day of week is Monday)
