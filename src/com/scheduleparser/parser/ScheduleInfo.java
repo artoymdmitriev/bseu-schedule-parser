@@ -1,3 +1,5 @@
+package com.scheduleparser.parser;
+
 /**
  * Created by Artoym on 07.05.2017.
  */

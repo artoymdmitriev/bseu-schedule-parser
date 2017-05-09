@@ -1,3 +1,5 @@
+package com.scheduleparser.parser;
+
 import com.google.gson.annotations.SerializedName;
 
 /**

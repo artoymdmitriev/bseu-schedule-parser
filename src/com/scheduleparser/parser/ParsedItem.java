@@ -1,3 +1,5 @@
+package com.scheduleparser.parser;
+
 /**
  * Created by Artoym on 06.05.2017.
  */
@@ -78,7 +80,7 @@ public class ParsedItem {
 
     @Override
     public String toString() {
-        return "ParsedItem{" +
+        return "com.scheduleparser.parser.ParsedItem{" +
                 "day='" + day + '\'' +
                 ", time='" + time + '\'' +
                 ", week='" + week + '\'' +

@@ -1,3 +1,5 @@
+package com.scheduleparser.parser;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 

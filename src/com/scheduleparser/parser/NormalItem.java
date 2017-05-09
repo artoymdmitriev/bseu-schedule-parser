@@ -1,3 +1,5 @@
+package com.scheduleparser.parser;
+
 /**
  * Created by Artoym on 06.05.2017.
  */
@@ -87,7 +89,7 @@ public class NormalItem {
 
     @Override
     public String toString() {
-        return "NormalItem{" +
+        return "com.scheduleparser.parser.NormalItem{" +
                 "dayOfWeek='" + dayOfWeek + '\'' +
                 ", numberOfDayOfWeek=" + numberOfDayOfWeek +
                 ", time='" + time + '\'' +

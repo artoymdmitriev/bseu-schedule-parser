@@ -1,3 +1,5 @@
+package com.scheduleparser.parser;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.jsoup.Jsoup;
@@ -146,7 +148,7 @@ public class Parser {
     }
 
     /**
-     * Gets a schedule as html and passes it to parser that parses
+     * Gets a schedule as html and passes it to com.scheduleparser.parser that parses
      * into an ArrayList of schedule items.
      * @throws Exception
      */

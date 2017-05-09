@@ -1,3 +1,7 @@
+package com.scheduleparser.example;
+
+import com.scheduleparser.parser.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -48,10 +52,10 @@ public class MainClass {
 
         //prints a list of subjects which are going to be
         //on Wednesday on the 14th week e.g.:
-        //NormalItem{dayOfWeek='среда', numberOfDayOfWeek=6, time='8:15-9:35', numberOfWeek=14, discipline='Экономика организации (предприятия)', teacher='Довыдова Ольга Григорьевна', place='4/501', subgroup='null', lessonType='Практические занятия'}
-        //NormalItem{dayOfWeek='среда', numberOfDayOfWeek=6, time='9:45-11:05', numberOfWeek=14, discipline='Бизнес-офис организации (предприятия) и интернет-маркетинг', teacher='Шаврук Елена Юрьевна', place='4/806', subgroup='подгр.а', lessonType='Лабораторные занятия'}
-        //NormalItem{dayOfWeek='среда', numberOfDayOfWeek=6, time='11:15-12:35', numberOfWeek=14, discipline='Экономика природопользования', teacher='Белоусова Татьяна Николаевна', place='4/908', subgroup='null', lessonType='Лекции'}
-        //NormalItem{dayOfWeek='среда', numberOfDayOfWeek=6, time='16:05-17:25', numberOfWeek=14, discipline='Русский язык как иностранный. Профессиональная лексика', teacher='Божкова Марина Ивановна', place='4/906', subgroup='null', lessonType='Практические занятия'}
+        //com.scheduleparser.parser.NormalItem{dayOfWeek='среда', numberOfDayOfWeek=6, time='8:15-9:35', numberOfWeek=14, discipline='Экономика организации (предприятия)', teacher='Довыдова Ольга Григорьевна', place='4/501', subgroup='null', lessonType='Практические занятия'}
+        //com.scheduleparser.parser.NormalItem{dayOfWeek='среда', numberOfDayOfWeek=6, time='9:45-11:05', numberOfWeek=14, discipline='Бизнес-офис организации (предприятия) и интернет-маркетинг', teacher='Шаврук Елена Юрьевна', place='4/806', subgroup='подгр.а', lessonType='Лабораторные занятия'}
+        //com.scheduleparser.parser.NormalItem{dayOfWeek='среда', numberOfDayOfWeek=6, time='11:15-12:35', numberOfWeek=14, discipline='Экономика природопользования', teacher='Белоусова Татьяна Николаевна', place='4/908', subgroup='null', lessonType='Лекции'}
+        //com.scheduleparser.parser.NormalItem{dayOfWeek='среда', numberOfDayOfWeek=6, time='16:05-17:25', numberOfWeek=14, discipline='Русский язык как иностранный. Профессиональная лексика', teacher='Божкова Марина Ивановна', place='4/906', subgroup='null', lessonType='Практические занятия'}
         System.out.println("Показываю расписание:");
         for(NormalItem it : normalItems) {
             if(it.getDayOfWeek().equals(enteredDayOfTheWeek) && it.getNumberOfWeek() == enteredWeekNumber) {
