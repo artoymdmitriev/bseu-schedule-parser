@@ -2,6 +2,8 @@ package com.scheduleparser.parser;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by Artoym on 06.05.2017.
@@ -55,6 +57,9 @@ public class ParseNormalizer {
                 normalItems.add(normalItem);
             }
         }
+
+        NormalItemComparator comparator = new NormalItemComparator();
+        Collections.sort(normalItems, comparator);
 
         return normalItems;
     }
