@@ -4,6 +4,7 @@ import com.scheduleparser.parser.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -11,28 +12,45 @@ import java.util.Scanner;
  */
 public class MainClass {
     public static void main(String[] args) throws Exception {
+        MainClass mainClass = new MainClass();
         ScheduleInfo scheduleInfo = new ScheduleInfo();
         Parser parser = new Parser();
 
         //gets a map of faculties (id, name)
         HashMap<Integer, String> faculties = parser.getFaculties();
-        //sets "Факультет менеджмента" as a faculty
-        scheduleInfo.setFaculty(11);
+        //shows all faculties and their id's
+        for(Map.Entry<Integer, String> entry : faculties.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+        //user sets the faculty, e.g. 11
+        scheduleInfo.setFaculty(mainClass.getID("Введите номер факультета: "));
 
         //gets a map of forms (id, name)
         HashMap<Integer, String> forms = parser.getForms(scheduleInfo);
-        //sets "Дневная" as a form
-        scheduleInfo.setForm(10);
+        //shows all forms and their id's
+        for(Map.Entry<Integer, String> entry : forms.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+        //user sets the form, e.g. 10
+        scheduleInfo.setForm(mainClass.getID("Введите номер формы получения образования: "));
 
         //gets a map of courses (id, number)
         HashMap<Integer, String> courses = parser.getCourses(scheduleInfo);
-        //sets "2 курс" as a course
-        scheduleInfo.setCourse(2);
+        //shows all courses and their id's
+        for(Map.Entry<Integer, String> entry : courses.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+        //user sets course, e.g. 2
+        scheduleInfo.setCourse(mainClass.getID("Введите номер курса: "));
 
         //gets a map of groups (id, number)
         HashMap<Integer, String> groups = parser.getGroups(scheduleInfo);
-        //sets "15ДКИ" as a group
-        scheduleInfo.setGroup(6316);
+        //shows all groups and their id's
+        for(Map.Entry<Integer, String> entry : groups.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+        //user sets group, e.g. 6316
+        scheduleInfo.setGroup(mainClass.getID("Введите номер группы: "));
 
         //gets schedule and turns it into arraylist
         ArrayList<ParsedItem> parsedItems = parser.getSchedule(scheduleInfo);
@@ -62,5 +80,11 @@ public class MainClass {
                 System.out.println(it);
             }
         }
+    }
+
+    private int getID(String question) {
+        System.out.println(question);
+        Scanner sc = new Scanner(System.in);
+        return sc.nextInt();
     }
 }
